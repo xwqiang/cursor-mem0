@@ -1,5 +1,8 @@
 # cursor-mem
 
+[![PyPI](https://img.shields.io/pypi/v/cursor-mem0)](https://pypi.org/project/cursor-mem0/)
+[![GitHub](https://img.shields.io/github/stars/xwqiang/cursor-mem0)](https://github.com/xwqiang/cursor-mem0)
+
 AI agent **memory layer** modeled on [mem0](https://github.com/mem0ai/mem0), with one key change: **LLM inference uses [Cursor SDK](https://cursor.com/docs/sdk/python) and `CURSOR_API_KEY`** instead of OpenAI / Anthropic / other third-party LLM API keys.
 
 Everything else follows mem0’s pipeline (v3 additive extraction, hybrid retrieval, entity linking, SQLite history, Qdrant vector store).
@@ -32,10 +35,28 @@ flowchart LR
 
 ## Install
 
+From PyPI (recommended):
+
+```bash
+pip install cursor-mem0
+
+# MCP server for Cursor agents
+pip install "cursor-mem0[mcp]"
+
+# Optional: BM25 + entity extraction (same as mem0[nlp])
+pip install "cursor-mem0[nlp]"
+python -m spacy download en_core_web_sm
+```
+
+> **Note:** PyPI package name is **`cursor-mem0`** (import: `from cursor_mem import Memory`). The name `cursor-mem` on PyPI is a different project (IDE session hooks).
+
+From source:
+
 ```bash
 pip install -e .
 
-# Optional: BM25 + entity extraction (same as mem0[nlp])
+# Optional extras
+pip install -e ".[mcp]"
 pip install -e ".[nlp]"
 python -m spacy download en_core_web_sm
 ```
@@ -65,7 +86,8 @@ This repo includes a **stdio MCP server** so Cursor agents can call `add_memory`
 ### 1. Install with MCP extras
 
 ```bash
-pip install -e ".[mcp]"
+pip install "cursor-mem0[mcp]"
+# or from source: pip install -e ".[mcp]"
 ```
 
 ### 2. Project config (already in repo)

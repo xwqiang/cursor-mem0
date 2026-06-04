@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cursor-mem": {
+      "command": "python3",
+      "args": ["-m", "cursor_mem.mcp_server"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "CURSOR_API_KEY": "${env:CURSOR_API_KEY}",
+        "CURSOR_MEM_USER_ID": "${env:CURSOR_MEM_USER_ID}"
+      }
+    }
+  }
+}

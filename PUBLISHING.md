@@ -74,6 +74,6 @@ Repo files used for discovery:
 
 | File | Purpose |
 |------|---------|
-| `mcp.json` | Cursor plugin MCP config (`uvx` + PyPI) |
+| `mcp.json` | Cursor plugin MCP config (`uvx --python 3.12` + PyPI) |
 | `.mcp.json` | Open Plugins / cursor.directory detection |
 | `.cursor-plugin/plugin.json` | Marketplace plugin manifest |

@@ -13,7 +13,7 @@ Long-term **memory for Cursor agents**, built on the [mem0](https://github.com/m
 | | |
 |---|---|
 | **Who it’s for** | Developers using Cursor who want agents to remember preferences and facts across chats |
-| **What you need** | Python 3.10+, a [Cursor API key](https://cursor.com/dashboard/integrations), and (for MCP) Cursor with MCP enabled |
+| **What you need** | Python **3.11+** (library); MCP via `uvx` uses **Python 3.12** in `mcp.json` (see [fastembed/onnxruntime](https://pypi.org/project/onnxruntime/)). [Cursor API key](https://cursor.com/dashboard/integrations) and (for MCP) [uv](https://docs.astral.sh/uv/) |
 | **PyPI package** | `cursor-mem0` — `pip install cursor-mem0` (import: `from cursor_mem import Memory`) |
 
 **Features**
@@ -117,7 +117,7 @@ Install from the community directory (recommended), or submit this repo for offi
 | **[cursor.directory](https://cursor.directory)** | Search “memory” / “mem0” — uses root [`.mcp.json`](.mcp.json) / [`mcp.json`](mcp.json). [Submit repo](https://cursor.directory/plugins/new) after release. |
 | **[Cursor Marketplace](https://cursor.com/marketplace)** | Settings → Plugins → Browse Marketplace. Requires [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) and [publish review](https://cursor.com/marketplace/publish). |
 
-This repository ships a **Cursor plugin manifest** and **MCP config** so directories can offer **Add to Cursor** without cloning the repo. The server runs from PyPI via `uvx` (requires [uv](https://docs.astral.sh/uv/) installed).
+This repository ships a **Cursor plugin manifest** and **MCP config** so directories can offer **Add to Cursor** without cloning the repo. The server runs from PyPI via `uvx --python 3.12` (requires [uv](https://docs.astral.sh/uv/) installed; avoids Python 3.10 wheel gaps for `onnxruntime`).
 
 ## Use with Cursor (MCP)
 

@@ -13,7 +13,7 @@
 | | |
 |---|---|
 | **适用对象** | 使用 Cursor、希望 Agent 在多轮对话中记住偏好与事实的开发者 |
-| **环境要求** | Python 3.10+、[Cursor API Key](https://cursor.com/dashboard/integrations)；使用 MCP 时需开启 Cursor 的 MCP |
+| **环境要求** | Python **3.11+**（库）；MCP 的 `mcp.json` 使用 **`uvx --python 3.12`**（`fastembed`/`onnxruntime` 在 3.10 上无可用 wheel）。需 [Cursor API Key](https://cursor.com/dashboard/integrations)、[uv](https://docs.astral.sh/uv/) |
 | **PyPI 包名** | `cursor-mem0` — `pip install cursor-mem0`（导入：`from cursor_mem import Memory`） |
 
 **功能要点**
@@ -117,7 +117,7 @@ python examples/chat_with_memory.py
 | **[cursor.directory](https://cursor.directory)** | 搜索 memory / mem0；识别仓库根目录 [`.mcp.json`](.mcp.json) / [`mcp.json`](mcp.json)。发布后可在 [此处提交](https://cursor.directory/plugins/new)。 |
 | **[Cursor Marketplace](https://cursor.com/marketplace)** | Cursor → Settings → Plugins → Browse Marketplace。需 [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) 并通过 [发布审核](https://cursor.com/marketplace/publish)。 |
 
-仓库已包含 **Cursor 插件清单** 与 **MCP 配置**，目录站可生成 **Add to Cursor**。MCP 通过 `uvx` 从 PyPI 拉取 `cursor-mem0`（需安装 [uv](https://docs.astral.sh/uv/)）。
+仓库已包含 **Cursor 插件清单** 与 **MCP 配置**，目录站可生成 **Add to Cursor**。MCP 通过 `uvx --python 3.12` 从 PyPI 拉取 `cursor-mem0`（需安装 [uv](https://docs.astral.sh/uv/)）。
 
 ## 在 Cursor 中使用（MCP）
 

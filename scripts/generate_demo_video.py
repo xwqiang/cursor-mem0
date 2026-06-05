@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "docs"
 OUT_VIDEO = OUT_DIR / "demo.mp4"
+OUT_GIF = OUT_DIR / "demo.gif"
 
 W, H = 1280, 720
 FPS = 30
@@ -336,6 +337,21 @@ def write_video(frame_paths: list[Path], output: Path) -> None:
     list_file.unlink(missing_ok=True)
 
 
+def write_gif(mp4: Path, gif: Path) -> None:
+    """README-inline GIF (GitHub renders img tags, not repo mp4 links)."""
+    cmd = [
+        "ffmpeg",
+        "-y",
+        "-i",
+        str(mp4),
+        "-vf",
+        "fps=8,scale=720:-1:flags=lanczos,split[s0][s1];"
+        "[s0]palettegen=max_colors=128[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5",
+        str(gif),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
 def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     total_sec = sum(d for _, d in SCENES)
@@ -356,7 +372,11 @@ def main() -> int:
 
         write_video(frame_paths, OUT_VIDEO)
 
-    print(f"Wrote {OUT_VIDEO} ({len(SCENES)} scenes, ~{total_sec:.0f}s, {frame_idx} frames)")
+    write_gif(OUT_VIDEO, OUT_GIF)
+    print(
+        f"Wrote {OUT_VIDEO} and {OUT_GIF} "
+        f"({len(SCENES)} scenes, ~{total_sec:.0f}s, {frame_idx} frames)"
+    )
     return 0
 
 

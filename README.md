@@ -34,7 +34,13 @@ Long-term **memory for Cursor agents**, built on the [mem0](https://github.com/m
 
 Extraction uses Cursor SDK quota when `infer=true`. Embedding runs on your machine.
 
-**Demo:** [docs/demo.mp4](docs/demo.mp4) (~49s) — before/after memory in Cursor, MCP tools, and context-size comparison.
+## Demo
+
+Before/after memory in Cursor, MCP tool calls, and context-size comparison (~49s).
+
+![cursor-mem0 demo](docs/demo.gif)
+
+[Full MP4 with controls](https://github.com/xwqiang/cursor-mem0/blob/main/docs/demo.mp4)
 
 ## Quick start
 

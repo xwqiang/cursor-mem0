@@ -34,7 +34,13 @@
 
 `infer=true` 时抽取消耗 Cursor SDK 额度；向量计算在本机完成。
 
-**演示视频：** [docs/demo.mp4](docs/demo.mp4)（约 49 秒，英文）— 使用前后对比、MCP 工具与 Context 开销说明。
+## 演示
+
+使用前后对比、MCP 工具调用与 Context 开销说明（约 49 秒，画面为英文）。
+
+![cursor-mem0 演示](docs/demo.gif)
+
+[带控制条的完整 MP4](https://github.com/xwqiang/cursor-mem0/blob/main/docs/demo.mp4)
 
 ## 快速开始
 

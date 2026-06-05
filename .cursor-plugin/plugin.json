@@ -1,7 +1,7 @@
 {
   "name": "cursor-mem",
   "version": "0.1.1",
-  "description": "Long-term memory for Cursor agents — mem0 pipeline, CURSOR_API_KEY extraction, local embeddings, MCP tools.",
+  "description": "Give your Cursor agents long-term memory across chats — without a second LLM API key. cursor-mem is a mem0-compatible memory layer built for Cursor. It extracts and stores user preferences and facts using your existing CURSOR_API_KEY (Cursor SDK), runs embeddings locally with fastembed, and persists vectors in on-disk Qdrant. Agents recall context through structured search (top_k) instead of dumping a growing MEMORY.md into every prompt. This plugin bundles an MCP server with four tools: add_memory, search_memories, list_memories, and get_memory. Install via uvx from PyPI (cursor-mem0) — no repo clone required. Requirements: CURSOR_API_KEY (Dashboard → Integrations), Python 3.10+, and uv for the bundled MCP server. Memory data is stored under ~/.cursor-mem/ by default. Open source (Apache-2.0).",
   "author": {
     "name": "cursor-mem contributors"
   },

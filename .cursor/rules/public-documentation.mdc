@@ -1,0 +1,51 @@
+---
+description: Public-facing README and docs — user audience, not maintainer notes
+globs: README.md,README.zh-CN.md,docs/**/*.md
+alwaysApply: false
+---
+
+# Public documentation (cursor-mem0)
+
+This is a **public GitHub project**. README and user docs are for **end users** (install, configure, use MCP/API), not for maintainers or marketing workflows.
+
+## Language split
+
+- `README.md` — **English** (default on GitHub / PyPI)
+- `README.zh-CN.md` — **Chinese**; keep in sync with English
+- Top of each file: cross-link (`English · 简体中文` / `English · 简体中文`)
+
+## README structure (user journey)
+
+1. One-paragraph **what it is** and who it’s for  
+2. **Overview** — features, requirements, comparison table (factual, not ad copy)  
+3. **Quick start** — install, API key, minimal Python example  
+4. **Use with Cursor (MCP)** — config for **the user’s project**, not “clone this repo only”  
+5. **Configuration** — env vars, defaults, optional extras  
+6. **Architecture** — table + diagram  
+7. **Relationship to mem0** — short technical note  
+8. **License**
+
+Put **Quick start before** long architecture sections.
+
+## Do not put in README
+
+- Promotion / social post templates  
+- SEO keyword blocks (`Search: …`)  
+- GitHub Topics / `github-repo-setup.sh` / `.github/topics.txt` instructions  
+- Maintainer-only commands (e.g. regenerate demo video scripts)  
+- Internal discoverability or release checklists  
+
+Those belong in `docs/`, `PUBLISHING.md`, or `.github/` — **not linked from README** unless users need them.
+
+## Tone and content
+
+- Explain **how to use** the product, not why the repo should get stars  
+- MCP steps must work for **any** workspace the user opens in Cursor  
+- Mention `cursor-mem0` vs `cursor-mem` PyPI name only where it prevents install mistakes  
+- Demo video: link + what it shows; no script regeneration steps  
+
+## When editing
+
+- Update **both** `README.md` and `README.zh-CN.md` for substantive changes  
+- Prefer deleting redundant sections over adding maintainer notes  
+- If unsure whether text is user-facing, **leave it out of README**

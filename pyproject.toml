@@ -73,6 +73,7 @@ packages = ["cursor_mem"]
 include = [
     "/LICENSE",
     "/README.md",
+    "/README.zh-CN.md",
     "/cursor_mem",
     "/examples",
     "/tests",

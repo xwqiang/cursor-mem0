@@ -9,3 +9,6 @@ venv/
 .env
 .cursor-mem/
 *.db
+
+# Local Cursor rules (not for the public repo)
+.cursor/rules/

@@ -101,23 +101,7 @@ pip install "cursor-mem0[mcp]"
 
 ### 2. Add MCP config
 
-Create or edit `.cursor/mcp.json` in your project root:
-
-```json
-{
-  "mcpServers": {
-    "cursor-mem": {
-      "command": "python3",
-      "args": ["-m", "cursor_mem.mcp_server"],
-      "cwd": "${workspaceFolder}",
-      "env": {
-        "CURSOR_API_KEY": "${env:CURSOR_API_KEY}",
-        "CURSOR_MEM_USER_ID": "${env:CURSOR_MEM_USER_ID}"
-      }
-    }
-  }
-}
-```
+Copy [docs/mcp.json.example](docs/mcp.json.example) to **your project** as `.cursor/mcp.json` (create the `.cursor` folder if needed), or merge the `cursor-mem` block into your existing MCP config.
 
 Put `CURSOR_API_KEY` in your project `.env` (loaded when the server starts with `cwd` set to the workspace).
 

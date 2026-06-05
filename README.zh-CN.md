@@ -101,23 +101,7 @@ pip install "cursor-mem0[mcp]"
 
 ### 2. 添加 MCP 配置
 
-在项目根目录创建或编辑 `.cursor/mcp.json`：
-
-```json
-{
-  "mcpServers": {
-    "cursor-mem": {
-      "command": "python3",
-      "args": ["-m", "cursor_mem.mcp_server"],
-      "cwd": "${workspaceFolder}",
-      "env": {
-        "CURSOR_API_KEY": "${env:CURSOR_API_KEY}",
-        "CURSOR_MEM_USER_ID": "${env:CURSOR_MEM_USER_ID}"
-      }
-    }
-  }
-}
-```
+将 [docs/mcp.json.example](docs/mcp.json.example) 复制到**你的项目**根目录下的 `.cursor/mcp.json`（没有 `.cursor` 目录请先创建），或把其中的 `cursor-mem` 段合并进你已有的 MCP 配置。
 
 建议在项目 `.env` 中配置 `CURSOR_API_KEY`（`cwd` 为工作区时由服务加载）。
 

@@ -76,6 +76,7 @@ include = [
     "/README.zh-CN.md",
     "/docs/demo.gif",
     "/docs/demo.mp4",
+    "/docs/mcp.json.example",
     "/cursor_mem",
     "/examples",
     "/tests",

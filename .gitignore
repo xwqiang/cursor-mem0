@@ -10,5 +10,5 @@ venv/
 .cursor-mem/
 *.db
 
-# Local Cursor rules (not for the public repo)
-.cursor/rules/
+# Local Cursor IDE config (users copy docs/mcp.json.example into their own projects)
+.cursor/

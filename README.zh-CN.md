@@ -55,15 +55,34 @@ pip install "cursor-mem0[mcp]"
 
 > PyPI 包名为 **`cursor-mem0`**，不是 `cursor-mem`（后者为无关的 IDE 会话工具）。
 
-### 2. 配置 API Key
+### 2. 获取 `CURSOR_API_KEY`
+
+cursor-mem0 通过 [Cursor SDK](https://cursor.com/docs/sdk/python) 做记忆抽取，需要的是 **Cursor 账号的用户 API Key**（不是 OpenAI 等第三方 Key）。
+
+1. 登录 [cursor.com](https://cursor.com)。
+2. 打开 **[Dashboard → Integrations](https://cursor.com/dashboard/integrations)**（API Keys 页面）。
+3. 点击 **Create API key**，起名（如 `cursor-mem`）后复制密钥，一般以 `cursor_` 开头。
+4. 勿将密钥提交到 git 或公开仓库。
+
+> Cursor SDK 暂不支持团队 **Admin** API Key，请使用个人用户 Key。
+
+### 3. 在本地配置 Key
+
+**方式 A — 项目 `.env`（配合 MCP 推荐）：**
+
+```bash
+cp .env.example .env
+# 编辑 .env：
+# CURSOR_API_KEY=cursor_...
+```
+
+**方式 B — 终端导出：**
 
 ```bash
 export CURSOR_API_KEY="cursor_..."
 ```
 
-或在项目根目录将 [`.env.example`](.env.example) 复制为 `.env` 并填写 `CURSOR_API_KEY`。
-
-### 3. Python 调用
+### 4. Python 调用
 
 ```python
 from cursor_mem import Memory

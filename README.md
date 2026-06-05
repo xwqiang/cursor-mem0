@@ -55,15 +55,34 @@ pip install "cursor-mem0[mcp]"
 
 > PyPI name **`cursor-mem0`** is not `cursor-mem` (that package is unrelated IDE session tooling).
 
-### 2. Set your API key
+### 2. Get your `CURSOR_API_KEY`
+
+cursor-mem0 uses the [Cursor SDK](https://cursor.com/docs/sdk/python) for memory extraction. You need a **user API key** from your Cursor account (not a separate OpenAI key).
+
+1. Sign in at [cursor.com](https://cursor.com).
+2. Open **[Dashboard → Integrations](https://cursor.com/dashboard/integrations)** (API Keys).
+3. Click **Create API key**, name it (e.g. `cursor-mem`), and copy the value. Keys usually start with `cursor_`.
+4. Keep the key secret — do not commit it to git.
+
+> Team **Admin** API keys are not supported by the Cursor SDK yet. Use a personal user key.
+
+### 3. Configure the key locally
+
+**Option A — `.env` in your project (recommended for MCP):**
+
+```bash
+cp .env.example .env
+# Edit .env:
+# CURSOR_API_KEY=cursor_...
+```
+
+**Option B — shell export:**
 
 ```bash
 export CURSOR_API_KEY="cursor_..."
 ```
 
-Or copy [`.env.example`](.env.example) to `.env` in your project and set `CURSOR_API_KEY` there.
-
-### 3. Use from Python
+### 4. Use from Python
 
 ```python
 from cursor_mem import Memory

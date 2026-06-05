@@ -81,7 +81,7 @@ include = [
     "/mcp.json",
     "/.mcp.json",
     "/.cursor-plugin/plugin.json",
-    "/assets/logo.svg",
+    "/assets/logo.png",
     "/cursor_mem",
     "/examples",
     "/tests",

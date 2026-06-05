@@ -8,6 +8,7 @@
   "homepage": "https://github.com/xwqiang/cursor-mem0",
   "repository": "https://github.com/xwqiang/cursor-mem0",
   "license": "Apache-2.0",
+  "logo": "assets/logo.svg",
   "keywords": [
     "cursor",
     "memory",

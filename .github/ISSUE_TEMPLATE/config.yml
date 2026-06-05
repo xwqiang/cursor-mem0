@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: PyPI package
+    url: https://pypi.org/project/cursor-mem0/
+    about: Install and version history
+  - name: mem0 (upstream)
+    url: https://github.com/mem0ai/mem0
+    about: Core memory pipeline this project extends

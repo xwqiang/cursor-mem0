@@ -1,0 +1,16 @@
+cursor
+cursor-sdk
+mem0
+ai-memory
+agent-memory
+long-term-memory
+mcp
+mcp-server
+python
+qdrant
+vector-search
+fastembed
+ai-agents
+llm
+semantic-search
+sqlite

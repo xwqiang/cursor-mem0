@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest an idea for cursor-mem0
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do with agent memory?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Area
+      options:
+        - Core Memory API (mem0-compatible)
+        - Cursor SDK integration
+        - MCP tools
+        - Retrieval / embeddings
+        - Docs / examples
+        - Other
+    validations:
+      required: true

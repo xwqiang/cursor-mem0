@@ -2,6 +2,12 @@
 
 [![PyPI](https://img.shields.io/pypi/v/cursor-mem0)](https://pypi.org/project/cursor-mem0/)
 [![GitHub](https://img.shields.io/github/stars/xwqiang/cursor-mem0)](https://github.com/xwqiang/cursor-mem0)
+[![License](https://img.shields.io/github/license/xwqiang/cursor-mem0)](https://github.com/xwqiang/cursor-mem0/blob/main/LICENSE)
+
+**mem0-compatible AI agent memory for Cursor** — extraction and reasoning via [Cursor SDK](https://cursor.com/docs/sdk/python) (`CURSOR_API_KEY`), local [fastembed](https://github.com/qdrant/fastembed) vectors, [Qdrant](https://qdrant.tech/) store, optional **MCP** tools for Cursor IDE.
+
+> **Search:** `cursor mem0`, `cursor agent memory`, `cursor mcp memory`, `CURSOR_API_KEY memory`, `mem0 cursor sdk`  
+> **GitHub topics:** see [`.github/topics.txt`](.github/topics.txt) — apply with `./scripts/github-repo-setup.sh` after `gh auth login`.
 
 AI agent **memory layer** modeled on [mem0](https://github.com/mem0ai/mem0), with one key change: **LLM inference uses [Cursor SDK](https://cursor.com/docs/sdk/python) and `CURSOR_API_KEY`** instead of OpenAI / Anthropic / other third-party LLM API keys.
 

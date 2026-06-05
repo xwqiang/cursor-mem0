@@ -1,0 +1,21 @@
+{
+  "name": "cursor-mem",
+  "version": "0.1.1",
+  "description": "Long-term memory for Cursor agents — mem0 pipeline, CURSOR_API_KEY extraction, local embeddings, MCP tools.",
+  "author": {
+    "name": "cursor-mem contributors"
+  },
+  "homepage": "https://github.com/xwqiang/cursor-mem0",
+  "repository": "https://github.com/xwqiang/cursor-mem0",
+  "license": "Apache-2.0",
+  "keywords": [
+    "cursor",
+    "memory",
+    "mem0",
+    "mcp",
+    "ai-agents",
+    "long-term-memory",
+    "agent-memory"
+  ],
+  "mcpServers": "./mcp.json"
+}

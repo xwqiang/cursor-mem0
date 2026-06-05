@@ -2,8 +2,8 @@
   "mcpServers": {
     "cursor-mem": {
       "type": "stdio",
-      "command": "uvx",
-      "args": ["--from", "cursor-mem0[mcp]", "cursor-mem-mcp"],
+      "command": "python3",
+      "args": ["-m", "cursor_mem.mcp_server"],
       "env": {
         "CURSOR_API_KEY": "${env:CURSOR_API_KEY}",
         "CURSOR_MEM_USER_ID": "${env:CURSOR_MEM_USER_ID}"

@@ -108,27 +108,41 @@ python examples/chat_with_memory.py
 
 Data is stored under `~/.cursor-mem/` unless you set `CURSOR_MEM_DIR`.
 
+## Find in Cursor
+
+Install from the community directory (recommended), or submit this repo for official listing:
+
+| Where | How users find it |
+|-------|-------------------|
+| **[cursor.directory](https://cursor.directory)** | Search “memory” / “mem0” — uses root [`.mcp.json`](.mcp.json) / [`mcp.json`](mcp.json). [Submit repo](https://cursor.directory/plugins/new) after release. |
+| **[Cursor Marketplace](https://cursor.com/marketplace)** | Settings → Plugins → Browse Marketplace. Requires [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) and [publish review](https://cursor.com/marketplace/publish). |
+
+This repository ships a **Cursor plugin manifest** and **MCP config** so directories can offer **Add to Cursor** without cloning the repo. The server runs from PyPI via `uvx` (requires [uv](https://docs.astral.sh/uv/) installed).
+
 ## Use with Cursor (MCP)
 
-Add the MCP server to **your** project so agents can store and recall memories during chat.
+### Option A — One-click / directory install (recommended)
 
-### 1. Install the MCP extra
+1. Install [uv](https://docs.astral.sh/uv/) if you do not have it (`curl -LsSf https://astral.sh/uv/install.sh | sh`).
+2. Set `CURSOR_API_KEY` (see [Get your key](#2-get-your-cursor_api_key) above).
+3. Copy [mcp.json](mcp.json) into **your project** as `.cursor/mcp.json`, or use **Add to Cursor** from [cursor.directory](https://cursor.directory) once listed.
+4. Put `CURSOR_API_KEY` in your project `.env` (optional; `envFile` in config loads it).
+
+No `pip install` needed — `uvx` pulls `cursor-mem0[mcp]` from PyPI on first run.
+
+### Option B — pip install
 
 ```bash
 pip install "cursor-mem0[mcp]"
 ```
 
-### 2. Add MCP config
+Copy [docs/mcp.pip.json.example](docs/mcp.pip.json.example) to `.cursor/mcp.json` in your project.
 
-Copy [docs/mcp.json.example](docs/mcp.json.example) to **your project** as `.cursor/mcp.json` (create the `.cursor` folder if needed), or merge the `cursor-mem` block into your existing MCP config.
-
-Put `CURSOR_API_KEY` in your project `.env` (loaded when the server starts with `cwd` set to the workspace).
-
-### 3. Enable in Cursor
+### Enable in Cursor
 
 1. Open your project in Cursor.
 2. Go to **Settings → MCP** (or type `/mcp` in chat) and enable **`cursor-mem`**.
-3. If tools are missing, reload the window and check MCP logs (Python path, `mcp` package installed).
+3. If tools are missing, reload the window and check MCP logs (`uvx` / `uv` on PATH, or `pip` + `mcp` package for Option B).
 
 To use memory in **all** projects, add the same server block to `~/.cursor/mcp.json`.
 

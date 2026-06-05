@@ -108,27 +108,41 @@ python examples/chat_with_memory.py
 
 默认数据目录：`~/.cursor-mem/`（可用 `CURSOR_MEM_DIR` 修改）。
 
+## 在 Cursor 中发现本插件
+
+用户可通过社区目录或官方市场搜索安装（无需 clone 本仓库）：
+
+| 渠道 | 说明 |
+|------|------|
+| **[cursor.directory](https://cursor.directory)** | 搜索 memory / mem0；识别仓库根目录 [`.mcp.json`](.mcp.json) / [`mcp.json`](mcp.json)。发布后可在 [此处提交](https://cursor.directory/plugins/new)。 |
+| **[Cursor Marketplace](https://cursor.com/marketplace)** | Cursor → Settings → Plugins → Browse Marketplace。需 [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) 并通过 [发布审核](https://cursor.com/marketplace/publish)。 |
+
+仓库已包含 **Cursor 插件清单** 与 **MCP 配置**，目录站可生成 **Add to Cursor**。MCP 通过 `uvx` 从 PyPI 拉取 `cursor-mem0`（需安装 [uv](https://docs.astral.sh/uv/)）。
+
 ## 在 Cursor 中使用（MCP）
 
-在**你的项目**里接入 MCP，让 Agent 在对话中写入与检索记忆。
+### 方式 A — 目录一键安装（推荐）
 
-### 1. 安装 MCP 依赖
+1. 安装 [uv](https://docs.astral.sh/uv/)（若尚未安装）。
+2. 配置 `CURSOR_API_KEY`（见上文「获取 Key」）。
+3. 将 [mcp.json](mcp.json) 复制到你项目的 `.cursor/mcp.json`，或在 [cursor.directory](https://cursor.directory) 收录后使用 **Add to Cursor**。
+4. 可在项目 `.env` 中填写 Key（配置中的 `envFile` 会自动加载）。
+
+无需 `pip install`，首次运行 `uvx` 会从 PyPI 安装 `cursor-mem0[mcp]`。
+
+### 方式 B — pip 安装
 
 ```bash
 pip install "cursor-mem0[mcp]"
 ```
 
-### 2. 添加 MCP 配置
+将 [docs/mcp.pip.json.example](docs/mcp.pip.json.example) 复制为项目下的 `.cursor/mcp.json`。
 
-将 [docs/mcp.json.example](docs/mcp.json.example) 复制到**你的项目**根目录下的 `.cursor/mcp.json`（没有 `.cursor` 目录请先创建），或把其中的 `cursor-mem` 段合并进你已有的 MCP 配置。
-
-建议在项目 `.env` 中配置 `CURSOR_API_KEY`（`cwd` 为工作区时由服务加载）。
-
-### 3. 在 Cursor 中启用
+### 在 Cursor 中启用
 
 1. 在 Cursor 中打开你的项目。
 2. 进入 **Settings → MCP**（或对话中输入 `/mcp`），启用 **`cursor-mem`**。
-3. 若看不到工具，重载窗口并查看 MCP 日志（Python 路径、是否已安装 `mcp` 包）。
+3. 若看不到工具，重载窗口并查看 MCP 日志（`uvx` / `uv` 是否在 PATH；方式 B 需已 `pip install`）。
 
 若要在**所有项目**使用，将相同配置写入 `~/.cursor/mcp.json`。
 

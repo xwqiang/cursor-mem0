@@ -61,3 +61,19 @@ git push -u origin main
 ```
 
 Then update `[project.urls]` in `pyproject.toml` with your real GitHub URLs and publish a new patch version.
+
+## List in Cursor (discovery)
+
+After a PyPI release, submit the public repo so users can find it in Cursor:
+
+1. **cursor.directory** (community, do this first): [cursor.directory/plugins/new](https://cursor.directory/plugins/new) — paste `https://github.com/xwqiang/cursor-mem0`. Auto-detects `.mcp.json` / `mcp.json` and `.cursor-plugin/plugin.json`.
+2. **MCP.Directory**: [mcp.directory/submit](https://mcp.directory/submit) — GitHub URL + PyPI package `cursor-mem0`.
+3. **Cursor Marketplace** (official, manual review): [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) — requires `.cursor-plugin/plugin.json` at repo root.
+
+Repo files used for discovery:
+
+| File | Purpose |
+|------|---------|
+| `mcp.json` | Cursor plugin MCP config (`uvx` + PyPI) |
+| `.mcp.json` | Open Plugins / cursor.directory detection |
+| `.cursor-plugin/plugin.json` | Marketplace plugin manifest |

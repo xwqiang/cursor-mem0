@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cursor-mem0"
-version = "0.1.2"
+version = "0.1.3"
 description = "AI agent memory layer (mem0-compatible) powered by Cursor SDK"
 readme = "README.md"
 license = "Apache-2.0"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<3.14"
 authors = [{ name = "cursor-mem contributors" }]
 keywords = [
     "cursor",
@@ -43,7 +43,11 @@ classifiers = [
 dependencies = [
     "mem0ai>=2.0.0",
     "cursor-sdk>=0.1.0",
-    "fastembed>=0.3.1",
+    # Cap fastembed so future releases cannot pull Python/onnxruntime pins we have not tested.
+    "fastembed>=0.5.1,<0.9.0",
+    # Intel Mac: onnxruntime stops publishing x86_64 wheels after 1.19.x; fastembed 0.5+ on
+    # Python 3.13 needs onnxruntime>1.20, which is unavailable there — pin helps pip fail clearly.
+    "onnxruntime>=1.17.0,!=1.20.0,<1.20.0; platform_machine == 'x86_64' and sys_platform == 'darwin'",
     "qdrant-client>=1.12.0",
 ]
 

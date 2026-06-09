@@ -46,14 +46,32 @@
 
 ### 1. 安装
 
+请使用 **Python 3.11 或 3.12**（推荐 **3.12**）。本地向量依赖 `fastembed` → `onnxruntime`；**Intel Mac（x86_64）没有 Python 3.13 的 `onnxruntime` wheel**，若系统默认 `pip3` 指向 3.13，`pip install` 会报 `ResolutionImpossible`。
+
 ```bash
-pip install cursor-mem0
+# 推荐：指定 Python 3.12
+python3.12 -m pip install cursor-mem0
 
 # 在 Cursor 里给 Agent 用记忆工具：
-pip install "cursor-mem0[mcp]"
+python3.12 -m pip install "cursor-mem0[mcp]"
+```
+
+或用 [uv](https://docs.astral.sh/uv/)（与 MCP / `uvx` 一致，固定 3.12）：
+
+```bash
+uv venv --python 3.12
+uv pip install "cursor-mem0[mcp]"
 ```
 
 > PyPI 包名为 **`cursor-mem0`**，不是 `cursor-mem`（后者为无关的 IDE 会话工具）。
+
+**`pip install` 失败，提示 `ResolutionImpossible` / `onnxruntime`？**
+
+| 情况 | 处理 |
+| --- | --- |
+| Intel Mac，`python3 --version` 为 3.13+ | 改用 **3.12**：`brew install python@3.12`，再 `python3.12 -m pip install cursor-mem0` |
+| 默认 `pip3` 为 3.10 | 升级到 3.11+（推荐 3.12） |
+| 使用 Cursor MCP | 优先用 [`.mcp.json`](.mcp.json) 里的 **`uvx --python 3.12`**，无需全局 `pip install` |
 
 ### 2. 获取 `CURSOR_API_KEY`
 

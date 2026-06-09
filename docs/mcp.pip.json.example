@@ -2,7 +2,7 @@
   "mcpServers": {
     "cursor-mem": {
       "type": "stdio",
-      "command": "python3",
+      "command": "python3.12",
       "args": ["-m", "cursor_mem.mcp_server"],
       "env": {
         "CURSOR_API_KEY": "${env:CURSOR_API_KEY}",

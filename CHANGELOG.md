@@ -2,6 +2,17 @@
 
 All notable changes to **cursor-mem0** are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.3] - 2026-06-09
+
+### Fixed
+
+- Pin `fastembed` (`>=0.5.1,<0.9.0`) and add an Intel Mac `onnxruntime` cap so `pip install` fails with a clearer dependency conflict instead of chasing unavailable wheels on Python 3.13.
+- Raise `requires-python` to `>=3.11,<3.14` to match documented support.
+
+### Changed
+
+- README install steps recommend `python3.12 -m pip` / `uv venv --python 3.12` and add a troubleshooting table for `ResolutionImpossible` / `onnxruntime` errors.
+
 ## [0.1.2] - 2026-06-09
 
 ### Added
@@ -41,4 +52,5 @@ All notable changes to **cursor-mem0** are documented here. The format follows [
 - Cursor plugin manifest (`.cursor-plugin/plugin.json`) and MCP discovery configs (`mcp.json`, `.mcp.json`).
 - GitHub Actions test workflow; publish workflow for PyPI on release.
 
+[0.1.3]: https://github.com/xwqiang/cursor-mem0/releases/tag/v0.1.3
 [0.1.2]: https://github.com/xwqiang/cursor-mem0/releases/tag/v0.1.2

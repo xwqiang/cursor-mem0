@@ -46,14 +46,32 @@ Before/after memory in Cursor, MCP tool calls, and context-size comparison (~49s
 
 ### 1. Install
 
-```bash
-pip install cursor-mem0
+Use **Python 3.11 or 3.12** (recommended: **3.12**). Local embeddings depend on `fastembed` → `onnxruntime`; **Intel Mac (x86_64) has no `onnxruntime` wheel for Python 3.13**, so `pip3 install` fails if your default `pip3` is 3.13.
 
-# To use memory tools from Cursor agents:
-pip install "cursor-mem0[mcp]"
+```bash
+# Recommended: explicit Python 3.12
+python3.12 -m pip install cursor-mem0
+
+# Memory tools for Cursor agents:
+python3.12 -m pip install "cursor-mem0[mcp]"
+```
+
+Or with [uv](https://docs.astral.sh/uv/) (same Python pin as MCP / `uvx`):
+
+```bash
+uv venv --python 3.12
+uv pip install "cursor-mem0[mcp]"
 ```
 
 > PyPI name **`cursor-mem0`** is not `cursor-mem` (that package is unrelated IDE session tooling).
+
+**`pip install` fails with `ResolutionImpossible` / `onnxruntime`?**
+
+| Symptom | Fix |
+| --- | --- |
+| Intel Mac, `python3 --version` is 3.13+ | Use Python **3.12**: `brew install python@3.12` then `python3.12 -m pip install cursor-mem0` |
+| Default `pip3` is 3.10 | Upgrade to 3.11+ (3.12 recommended) |
+| Using Cursor MCP | Prefer **`uvx --python 3.12`** from [`.mcp.json`](.mcp.json) — no global `pip install` needed |
 
 ### 2. Get your `CURSOR_API_KEY`
 

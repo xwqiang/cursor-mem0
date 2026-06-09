@@ -12,17 +12,22 @@ requires-python = ">=3.10,<4.0"
 authors = [{ name = "cursor-mem contributors" }]
 keywords = [
     "cursor",
+    "cursor-ide",
     "cursor-sdk",
     "mem0",
     "ai-memory",
     "agent-memory",
     "long-term-memory",
+    "persistent-memory",
     "mcp",
     "mcp-server",
     "qdrant",
     "fastembed",
     "semantic-search",
+    "vector-search",
     "ai-agents",
+    "cross-chat",
+    "user-preferences",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -70,6 +75,7 @@ packages = ["cursor_mem"]
 
 [tool.hatch.build.targets.sdist]
 include = [
+    "/CHANGELOG.md",
     "/LICENSE",
     "/README.md",
     "/README.zh-CN.md",
@@ -81,6 +87,7 @@ include = [
     "/.mcp.json",
     "/.cursor-plugin/plugin.json",
     "/assets/logo.png",
+    "/skills",
     "/cursor_mem",
     "/examples",
     "/tests",

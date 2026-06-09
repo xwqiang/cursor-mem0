@@ -11,12 +11,23 @@
   "logo": "assets/logo.png",
   "keywords": [
     "cursor",
+    "cursor-ide",
     "memory",
+    "long-term-memory",
+    "persistent-memory",
+    "agent-memory",
+    "ai-memory",
     "mem0",
     "mcp",
+    "mcp-server",
     "ai-agents",
-    "long-term-memory",
-    "agent-memory"
+    "semantic-search",
+    "vector-search",
+    "context",
+    "cross-chat",
+    "user-preferences",
+    "memory-md",
+    "rag"
   ],
   "mcpServers": "./mcp.json"
 }
